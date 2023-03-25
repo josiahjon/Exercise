@@ -1,4 +1,5 @@
 ﻿using ExerciseWeb.Data;
+using ExerciseWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExerciseWeb.Controllers
@@ -13,8 +14,8 @@ namespace ExerciseWeb.Controllers
         }
         public IActionResult Index()
         {
-            var objCategoryList = _db.Categories.ToList();
-            return View();
+            IEnumerable<Category> objCategoryList = _db.Categories;
+            return View(objCategoryList);
         }
     }
 }
