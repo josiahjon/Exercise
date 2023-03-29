@@ -38,6 +38,7 @@ namespace ExerciseWeb.Controllers
             {
                 _db.Categories.Add(obj);
                 _db.SaveChanges();
+                TempData["Success"] = "Exercise Added";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -73,6 +74,7 @@ namespace ExerciseWeb.Controllers
             {
                 _db.Categories.Update(obj);
                 _db.SaveChanges();
+                TempData["Success"] = "Exercise Updated";
                 return RedirectToAction("Index");
             }
             return View(obj);
@@ -108,7 +110,8 @@ namespace ExerciseWeb.Controllers
             }
                 _db.Categories.Remove(obj);
                 _db.SaveChanges();
-                return RedirectToAction("Index");
+            TempData["Success"] = "Exercise Removed";
+            return RedirectToAction("Index");
         }
     }
 }
